@@ -1,0 +1,16 @@
+Libraries that can be useful for this project:
+
+1. @tanstack/react-query
+- A data-fetching and state management library for React
+
+2. chart.js & react-chartjs-2
+- Draw and wrap interactive chartjs
+
+3. clsx
+- a utility for conditional class names
+
+4. zod
+- for runtime type validation
+
+5. dayjs
+- a lightweight js library for parsing, and manipulating dates/time
