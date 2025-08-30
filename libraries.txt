@@ -1,5 +1,7 @@
 Libraries that can be useful for this project:
 
+0. @supabase/auth-helpers-nextjs
+
 1. @tanstack/react-query
 - A data-fetching and state management library for React
 
