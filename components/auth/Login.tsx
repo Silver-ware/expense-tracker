@@ -9,8 +9,28 @@ import {
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { FormEvent } from "react";
+import { toast } from "sonner";
+import { client } from "@/lib/supabase/client";
 
 const Login = () => {
+   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.target as HTMLFormElement;
+    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value;
+    const password = (form.elements.namedItem("password") as HTMLInputElement)?.value;
+    // console.log(email, password);
+
+    const {error} = await client.auth.signInWithPassword({
+      email,
+      password
+    })
+
+    if (error) console.error("Something went wrong:", error.message);
+  }
+
+
   return (
     <Card>
       <CardHeader>
@@ -19,18 +39,22 @@ const Login = () => {
           Login to your account to track your expenses.
         </CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-6">
-        <div className="grid gap-3">
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="email@example.com" />
-        </div>
-        <div className="grid gap-3">
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" />
-        </div>
+      <CardContent className="">
+        <form id="login-form" className="grid gap-6" onSubmit={handleLogin}>
+          <div className="grid gap-3">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" type="email" placeholder="email@example.com" />
+          </div>
+          <div className="grid gap-3">
+            <Label htmlFor="password">Password</Label>
+            <Input id="password" type="password" />
+          </div>
+        </form>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">Login</Button>
+        <Button type="submit" form="login-form" className="w-full">
+          Login
+        </Button>
       </CardFooter>
     </Card>
   );

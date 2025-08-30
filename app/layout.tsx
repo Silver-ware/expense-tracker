@@ -1,5 +1,6 @@
 import "./globals.css";
 import { AuthProvider } from "@/components/context/AuthProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function RootLayout({
   children,
@@ -13,6 +14,7 @@ export default function RootLayout({
         cz-shortcut-listen="false"
       >
         <AuthProvider>{children}</AuthProvider>
+        <Toaster/>
       </body>
     </html>
   );
