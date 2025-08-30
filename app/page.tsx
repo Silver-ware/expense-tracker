@@ -1,19 +1,19 @@
+'use client'
+import { useRouter } from "next/navigation"
+import useAuth from "./hooks/useAuth"
 
-import { createClient } from '@/app/lib/supabase/server'
-import { cookies } from 'next/headers'
+export default function Page(){
+  const {user, loading} = useAuth()
+  const router = useRouter();
 
-export default async function Page() {
-  const cookieStore = cookies()
-  const supabase = await createClient(cookieStore)
-  
+  if(!loading && user) {
+    router.push("/dashboard")
+    return null;
+  }
 
-  const { data: todos } = await supabase.from('todos').select()
-
-  return (
-    <ul>
-      {todos?.map((todo, index) => (
-        <li key={index}>{todo}</li>
-      ))}
-    </ul>
+  return(
+    <div>
+      {loading ? <div>Loading...</div> : <div>hello</div>}
+    </div>
   )
 }

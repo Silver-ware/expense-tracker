@@ -1,6 +1,6 @@
 'use client'
 import { ReactNode } from "react";
-import { client } from "@/app/lib/supabase/client";
+import { client } from "@/lib/supabase/client";
 import { useEffect, createContext, useState } from "react" 
 import { User } from "@supabase/supabase-js";
 
@@ -9,7 +9,12 @@ interface AuthContextInterface {
   loading: boolean;
 }
 
-const AuthContext = createContext<AuthContextInterface | null>(null);
+const defaultAuthContext: AuthContextInterface =  {
+  user: null,
+  loading: false,
+}
+
+const AuthContext = createContext<AuthContextInterface>(defaultAuthContext);
 
 const AuthProvider = ({children} : {children: ReactNode}) => {
   const [user, setUser] = useState<User | null>(null);
