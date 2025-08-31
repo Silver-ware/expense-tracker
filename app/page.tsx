@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import useAuth from "@/hooks/useAuth";
 import AuthLayout from "@/components/auth/AuthLayout";
 import { client } from "@/lib/supabase/client";
+import Image from "next/image";
 
 export default function Page() {
   const { user, loading } = useAuth();
@@ -17,16 +18,21 @@ export default function Page() {
     // return null;
     return (
       <div className="w-full h-screen flex items-center justify-center">
-        <button className="px-3 py-1.5 rounded border" onClick={logout}>Signout</button>
+        <button className="px-3 py-1.5 rounded border" onClick={logout}>
+          Signout
+        </button>
       </div>
-    )
+    );
   }
 
   return (
-    <div className="w-full h-screen bg-background flex items-center justify-center text-foreground">
-      <div className="w-[25%] h-[80%] flex items-center">
-        {loading ? <div>Loading...</div> : <AuthLayout/>}
+    <div className="w-full h-screen bg-background flex items-center justify-center text-foreground overflow-y-auto">
+      <div className="w-[25%] h-fit flex flex-col justify-start items-center gap-1">
+        <div className="w-32 h-[130px] relative">
+          <Image src="/icons/logo.png" alt="logo" fill />
+        </div>
+        {loading ? <div>Loading...</div> : <AuthLayout />}
       </div>
     </div>
-  );
+  ) 
 }
