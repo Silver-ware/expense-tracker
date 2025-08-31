@@ -14,7 +14,7 @@ export default function RootLayout({
         cz-shortcut-listen="false"
       >
         <AuthProvider>{children}</AuthProvider>
-        <Toaster/>
+        <Toaster position="top-center" richColors closeButton/>
       </body>
     </html>
   );
