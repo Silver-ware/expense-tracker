@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import useAuth from "@/hooks/useAuth";
 import AuthLayout from "@/components/auth/AuthLayout";
+import { Loader2 } from "lucide-react";
 // import { client } from "@/lib/supabase/client";
 import Image from "next/image";
 
@@ -28,10 +29,19 @@ export default function Page() {
   return (
     <div className="w-full h-screen bg-background flex items-center justify-center text-foreground overflow-y-auto">
       <div className="w-[28%] h-screen flex flex-col justify-center items-center gap-1">
-        <div className="w-32 h-[130px] relative -mt-[22%]">
-          <Image src="/icons/logo.png" alt="logo" fill />
-        </div>
-        {loading ? <div>Loading...</div> : <AuthLayout />}
+        {loading ? (
+          <div className="flex flex-col gap-2 items-center justify-center min-h-screen">
+            <span className="font-bold text-primary text-xl">Please wait a moment...</span>
+            <Loader2 className="h-12 w-12 animate-spin text-primary" />
+          </div>
+        ) : (
+          <>
+            <div className="w-32 h-[130px] relative -mt-[22%]">
+              <Image src="/icons/logo.png" alt="logo" fill />
+            </div>
+            <AuthLayout />
+          </>
+        )}
       </div>
     </div>
   );
