@@ -14,15 +14,15 @@ export default function Page() {
   };
 
   if (!loading && user) {
-    // router.push("/dashboard");
-    // return null;
-    return (
-      <div className="w-full h-screen flex items-center justify-center">
-        <button className="px-3 py-1.5 rounded border" onClick={logout}>
-          Signout
-        </button>
-      </div>
-    );
+    router.push("/home");
+    return null;
+    // return (
+    //   <div className="w-full h-screen flex items-center justify-center">
+    //     <button className="px-3 py-1.5 rounded border" onClick={logout}>
+    //       Signout
+    //     </button>
+    //   </div>
+    // );
   }
 
   return (
