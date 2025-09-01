@@ -27,12 +27,12 @@ export default function Page() {
 
   return (
     <div className="w-full h-screen bg-background flex items-center justify-center text-foreground overflow-y-auto">
-      <div className="w-[28%] h-screen flex flex-col justify-start pt-6 items-center gap-1">
-        <div className="w-32 h-[130px] relative">
+      <div className="w-[28%] h-screen flex flex-col justify-center items-center gap-1">
+        <div className="w-32 h-[130px] relative -mt-[22%]">
           <Image src="/icons/logo.png" alt="logo" fill />
         </div>
         {loading ? <div>Loading...</div> : <AuthLayout />}
       </div>
     </div>
-  ) 
+  );
 }
