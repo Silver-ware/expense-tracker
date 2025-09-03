@@ -36,7 +36,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="py-7 pl-10 pr-6 flex justify-between h-fit w-full">
+    <div className="pt-7 pb-5 pl-12 pr-8 flex justify-between h-fit w-full">
       <div className="flex items-center gap-2 select-none cursor-pointer" onClick={() => backToHome()}>
         <span className="relative w-10 h-11">
           <Image src="/icons/logo-no-text.png" alt="logo-with-no-text" fill />

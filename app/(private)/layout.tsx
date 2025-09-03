@@ -30,9 +30,9 @@ export default function AuthenticatedLayout({
 
   return (
     <div className="w-full h-screen flex items-center justify-center bg-[#F3F2F3]">
-      <div className="w-[75%] h-[90vh] rounded-lg shadow-xl border-t border-primary/50 bg-background">
+      <div className="w-[70%] h-[90vh] flex flex-col rounded-lg shadow-xl border-t border-primary/50 bg-background">
         <Navbar />
-        <div className="w-full h-full p-4">{children}</div>
+        <div className="w-full grow-1 px-8 pb-6">{children}</div>
       </div>
     </div>
   );
