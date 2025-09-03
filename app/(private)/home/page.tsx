@@ -1,5 +1,66 @@
+import ExpenseTable from "@/components/ExpenseTable";
 import { Button } from "@/components/ui/button";
 import { BanknoteArrowDown } from "lucide-react";
+
+export interface ExpensesDataInterface {
+  date: string | Date;
+  category: string;
+  details: string;
+  amount: number;
+  type: "cash-in" | "cash-out";
+}
+
+export const recentExpensesData: ExpensesDataInterface[] = [
+  {
+    date: "September 2, 2025",
+    category: "Food",
+    details: "Bought Apple",
+    amount: 200,
+    type: "cash-in",
+  },
+   {
+    date: "September 2, 2025",
+    category: "Food",
+    details: "Bought Apple",
+    amount: 200,
+    type: "cash-in",
+  },
+   {
+    date: "September 2, 2025",
+    category: "Food",
+    details: "Bought Apple",
+    amount: 200,
+    type: "cash-in",
+  },
+   {
+    date: "September 2, 2025",
+    category: "Food",
+    details: "Bought Apple",
+    amount: 200,
+    type: "cash-in",
+  },
+   {
+    date: "September 2, 2025",
+    category: "Food",
+    details: "Bought Apple",
+    amount: 200,
+    type: "cash-in",
+  },
+   {
+    date: "September 2, 2025",
+    category: "Food",
+    details: "Bought Apple",
+    amount: 200,
+    type: "cash-in",
+  },
+   {
+    date: "September 2, 2025",
+    category: "Food",
+    details: "Bought Apple",
+    amount: 200,
+    type: "cash-in",
+  }
+]
 
 export default function Page() {
   return (
@@ -15,13 +76,13 @@ export default function Page() {
           <span className="font-bold text-5xl">{"$550"}</span>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-4 pt-5 flex-1 px-4">
+      <div className="flex flex-col items-center gap-4 pt-5 px-4">
         <Button className="text-background">
           <BanknoteArrowDown/>
           <span className="text-lg">Add Expenses</span>
         </Button>
-        <div className="rounded-md shadow-sm shadow-gray-200 w-full grow-1">
-
+        <div className="rounded-md shadow-sm shadow-gray-200 w-full max-h-[240px] overflow-y-auto">
+          <ExpenseTable expensesData={recentExpensesData}/>
         </div>
       </div>
     </div>
