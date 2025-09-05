@@ -13,4 +13,4 @@ export interface RemainingBudget {
   category: CategoryTypes;
 }
 
-export type BudgetEntry = { category: string; amount: number };
+export type HomeTransactionEntry = { category: string; amount: number };
